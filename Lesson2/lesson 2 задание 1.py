@@ -1,5 +1,5 @@
 
-yourName = input('Enter name:')
-print("Hello", yourName)
+name = input('Enter name:')
+print("Hello", name)
 
 
