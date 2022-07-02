@@ -4,13 +4,22 @@
 from datetime import datetime
 from time import sleep
 
-def wait():
-    for i in range(3, 0, -1):
-        sleep(1)
-        print(i)
+
+def counter(function):
+
+    def wrap(*args, **kwargs):
+        for sec in range(3, 0, -1):
+            print(sec)
+            sleep(1)
+        function(*args, **kwargs)
+    return wrap
 
 
-wait()
-time = datetime.now().strftime('%H:%M')
-print(time)
+@counter
+def time_now():
+    time = datetime.now().strftime('%H:%M')
+    print(time)
 
+
+if __name__ == '__main__':
+    time_now()
